@@ -7,6 +7,8 @@ application framework (http://www.juce.com).
 The example applications contain source code and project files and are provided to illustrate some of the creative possibilities
 of the Leap Motion controller.
 
+* These examples require use of Leap Service/Daemon 2.X and LeapSDK version 2.X *
+
 Folder contents:
     
     Example programs with source code:
