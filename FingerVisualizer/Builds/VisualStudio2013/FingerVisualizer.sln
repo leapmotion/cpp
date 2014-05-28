@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{8073FD49-FFF5-31B1-91DF-6D54FF72EDEB}") = "FingerVisualizer", "FingerVisualizer.vcxproj", "{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Debug|Win32.Build.0 = Debug|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Release|Win32.ActiveCfg = Release|Win32
+		{E956EAE4-E2AD-02ED-0FDC-8C550EA3DB13}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

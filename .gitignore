@@ -1,0 +1,15 @@
+*.sdf
+*.suo
+*.opensdf
+*.user
+*.obj
+*.orig
+.*.swp
+LeapSDK/
+*/*.exe
+*/*.dll
+*/*.app
+.DS_Store
+*.aps
+*/Builds/MacOSX/Orientation.xcodeproj/project.xcworkspace/
+*/Builds/MacOSX/build/

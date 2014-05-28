@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="ia4cwf" name="FingerVisualizer" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.leap.FingerVisualizer" jucerVersion="3.1.0"
+              companyName="Leap Motion" defines="LEAP_SCENE_USE_UTIL_GL=1"
+              includeBinaryInAppConfig="1">
+  <EXPORTFORMATS>
+    <VS2013 targetFolder="Builds/VisualStudio2013" libraryType="1" externalLibraries="leap.lib">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"
+                       alwaysGenerateDebugSymbols="0"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <VS2012 targetFolder="Builds/VisualStudio2012" libraryType="1" externalLibraries="leap.lib">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2012>
+    <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" externalLibraries="leap.lib">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2010>
+    <VS2008 targetFolder="Builds/VisualStudio2008" libraryType="1" externalLibraries="leap.lib"
+            extraDefs="JUCE_USE_DIRECTWRITE=0">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2008>
+    <XCODE_MAC targetFolder="Builds/MacOSX" externalLibraries="Leap" postbuildCommand="cp -f ../../../../LeapSDK/lib/libLeap.dylib &quot;${CONFIGURATION_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}&quot; 2&gt; /dev/null || cp -f ../../../LeapSDK/lib/libLeap.dylib &quot;${CONFIGURATION_BUILD_DIR}/${EXECUTABLE_FOLDER_PATH}&quot;"
+               objCExtraSuffix="rfRWDG" extraCompilerFlags="-Wno-deprecated-register -Wno-format-nonliteral">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" headerPath="../../../../LeapSDK/include;../../../../LeapSDK/util;../../../LeapSDK/include;../../../LeapSDK/util;"
+                       libraryPath="../../../../LeapSDK/lib;../../../LeapSDK/lib"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="10.6 SDK" osxArchitecture="64BitUniversal"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" headerPath="../../../../LeapSDK/include;../../../../LeapSDK/util;../../../LeapSDK/include;../../../LeapSDK/util;"
+                       libraryPath="../../../../LeapSDK/lib;../../../LeapSDK/lib"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <LINUX_MAKE targetFolder="Builds/Linux" externalLibraries="GLU&#10;Leap"
+                extraLinkerFlags="-Wl,-rpath,.,-rpath,\$$ORIGIN/../../../../../LeapSDK/lib/$(shell [[ $$(uname -m) == x86_64 &amp;&amp; &quot;$(TARGET_ARCH)&quot; == &quot;-march=native&quot; ]] &amp;&amp; echo x64 || echo x86)"
+                extraCompilerFlags="">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib;../../../LeapSDK/lib/$(shell [[ $$(uname -m) == x86_64 &amp;&amp; &quot;$(TARGET_ARCH)&quot; == &quot;-march=native&quot; ]] &amp;&amp; echo x64 || echo x86);../../../../LeapSDK/lib/$(shell [[ $$(uname -m) == x86_64 &amp;&amp; &quot;$(TARGET_ARCH)&quot; == &quot;-march=native&quot; ]] &amp;&amp; echo x64 || echo x86)"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" headerPath="../../../../LeapSDK/include;../../../../LeapSDK/util;../../../LeapSDK/include;../../../LeapSDK/util"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib;../../../LeapSDK/lib/$(shell [[ $$(uname -m) == x86_64 &amp;&amp; &quot;$(TARGET_ARCH)&quot; == &quot;-march=native&quot; ]] &amp;&amp; echo x64 || echo x86);../../../../LeapSDK/lib/$(shell [[ $$(uname -m) == x86_64 &amp;&amp; &quot;$(TARGET_ARCH)&quot; == &quot;-march=native&quot; ]] &amp;&amp; echo x64 || echo x86)"
+                       isDebug="0" optimisation="2" targetName="FingerVisualizer" headerPath="../../../../LeapSDK/include;../../../../LeapSDK/util;../../../LeapSDK/include;../../../LeapSDK/util"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_audio" path="JuceLibraryCode/modules"/>
+        <MODULEPATH id="juce_graphics" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../ThirdParty/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../ThirdParty/JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MAINGROUP id="ubZ7tF" name="FingerVisualizer">
+    <GROUP id="{91606178-E538-800B-126C-598ECFC03BAE}" name="LeapUtil">
+      <FILE id="wnsQdj" name="LeapUtil.cpp" compile="0" resource="0" file="../../LeapSDK/util/LeapUtil.cpp"/>
+      <FILE id="V10fDS" name="LeapUtil.h" compile="0" resource="0" file="../../LeapSDK/util/LeapUtil.h"/>
+      <FILE id="lrii6h" name="LeapUtilGL.cpp" compile="0" resource="0" file="../../LeapSDK/util/LeapUtilGL.cpp"/>
+      <FILE id="w3OtFR" name="LeapUtilGL.h" compile="0" resource="0" file="../../LeapSDK/util/LeapUtilGL.h"/>
+    </GROUP>
+    <GROUP id="{9B554D88-6C00-1ECE-CE32-354721AC96D7}" name="Source">
+      <FILE id="G9H9qR" name="Util.cpp" compile="1" resource="0" file="Source/Util.cpp"/>
+      <FILE id="mbPydu" name="README.txt" compile="0" resource="0" file="README.txt"/>
+      <FILE id="aZ63qg" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_audio" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS/>
+</JUCERPROJECT>
