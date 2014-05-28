@@ -16,24 +16,20 @@ class OpenGLCanvas;
 
 // intermediate class for convenient conversion from JUCE color
 // to float vector argument passed to GL functions
-struct GLColor 
+struct GLColor  : public LeapUtilGL::GLVector4fv
 {
-  GLColor() : r(1), g(1), b(1), a(1) {}
+  GLColor() : GLVector4fv( 1.0f, 1.0f, 1.0f, 1.0f ) {}
 
-  GLColor( float _r, float _g, float _b, float _a=1 )
-    : r(_r), g(_g), b(_b), a(_a)
-  {}
+  GLColor( float r, float g, float b, float a=1.0f ) : GLVector4fv( r, g, b, a ) {}
+
+  GLColor( const Leap::Vector& vRHS, float a = 1.0f ) : GLVector4fv( vRHS, a ) {}
 
   explicit GLColor( const Colour& juceColor ) 
-    : r(juceColor.getFloatRed()), 
-      g(juceColor.getFloatGreen()),
-      b(juceColor.getFloatBlue()),
-      a(juceColor.getFloatAlpha())
+    : GLVector4fv(juceColor.getFloatRed(),
+                  juceColor.getFloatGreen(),
+                  juceColor.getFloatBlue(),
+                  juceColor.getFloatAlpha())
   {}
-
-  operator const GLfloat*() const { return &r; }
-
-  GLfloat r, g, b, a; 
 };
 
 //==============================================================================
@@ -124,8 +120,7 @@ public:
         m_bPaused = false;
 
         m_fFrameScale = 0.0075f;
-        m_mtxFrameTransform.origin = Leap::Vector( 0.0f, -2.0f, 0.5f );
-        m_fPointableRadius = 0.05f;
+        m_vFrameTranslation = Leap::Vector(0.0f, -2.0f, 0.5f);
 
         m_bShowHelp = false;
 
@@ -354,15 +349,15 @@ public:
         glLightModelfv(GL_LIGHT_MODEL_AMBIENT, GLColor(Colours::darkgrey));
 
         glLightfv(GL_LIGHT0, GL_POSITION, vLight0Position);
-        glLightfv(GL_LIGHT0, GL_DIFFUSE, GLColor(Colour(0.5f, 0.40f, 0.40f, 1.0f)));
+        glLightfv(GL_LIGHT0, GL_DIFFUSE, GLColor(0.25f, 0.20f, 0.20f, 1.0f));
         glLightfv(GL_LIGHT0, GL_AMBIENT, GLColor(Colours::black));
 
         glLightfv(GL_LIGHT1, GL_POSITION, vLight1Position);
-        glLightfv(GL_LIGHT1, GL_DIFFUSE, GLColor(Colour(0.0f, 0.0f, 0.25f, 1.0f)));
+        glLightfv(GL_LIGHT1, GL_DIFFUSE, GLColor(0.0f, 0.0f, 0.125f, 1.0f));
         glLightfv(GL_LIGHT1, GL_AMBIENT, GLColor(Colours::black));
 
         glLightfv(GL_LIGHT2, GL_POSITION, vLight2Position);
-        glLightfv(GL_LIGHT2, GL_DIFFUSE, GLColor(Colour(0.15f, 0.15f, 0.15f, 1.0f)));
+        glLightfv(GL_LIGHT2, GL_DIFFUSE, GLColor(0.15f, 0.15f, 0.15f, 1.0f));
         glLightfv(GL_LIGHT2, GL_AMBIENT, GLColor(Colours::black));
 
         glEnable(GL_LIGHT0);
@@ -426,7 +421,7 @@ public:
         }
 
         // draw fingers/tools as lines with sphere at the tip.
-        drawPointables( frame );
+        drawHands( frame );
 
         {
           ScopedLock renderLock(m_renderMutex);
@@ -436,41 +431,21 @@ public:
         }
     }
 
-    void drawPointables( Leap::Frame frame )
+    void drawHands( Leap::Frame frame )
     {
-        LeapUtilGL::GLAttribScope colorScope( GL_CURRENT_BIT | GL_LINE_BIT );
+        LeapUtilGL::GLMatrixScope matrixScope;
 
-        const Leap::PointableList& pointables = frame.pointables();
+        glTranslatef(m_vFrameTranslation.x, m_vFrameTranslation.y, m_vFrameTranslation.z);
+        glScalef(m_fFrameScale, m_fFrameScale, m_fFrameScale);
 
-        const float fScale = m_fPointableRadius;
+        const Leap::HandList& hands = frame.hands();
 
-        glLineWidth( 3.0f );
-
-        for ( size_t i = 0, e = pointables.count(); i < e; i++ )
+        for ( size_t i = 0, e = hands.count(); i < e; i++ )
         {
-            const Leap::Pointable&  pointable   = pointables[i];
-            Leap::Vector            vStartPos   = m_mtxFrameTransform.transformPoint( pointable.tipPosition() * m_fFrameScale );
-            Leap::Vector            vEndPos     = m_mtxFrameTransform.transformDirection( pointable.direction() ) * -0.25f;
-            const uint32_t          colorIndex  = static_cast<uint32_t>(pointable.id()) % kNumColors;
+            const Leap::Hand& hand        = hands[i];
+            const uint32_t    colorIndex  = static_cast<uint32_t>(hand.id()) % kNumColors;
 
-            glColor3fv( m_avColors[colorIndex].toFloatPointer() );
-
-            {
-                LeapUtilGL::GLMatrixScope matrixScope;
-
-                glTranslatef( vStartPos.x, vStartPos.y, vStartPos.z );
-
-                glBegin(GL_LINES);
-
-                glVertex3f( 0, 0, 0 );
-                glVertex3fv( vEndPos.toFloatPointer() );
-
-                glEnd();
-
-                glScalef( fScale, fScale, fScale );
-
-                LeapUtilGL::drawSphere( LeapUtilGL::kStyle_Solid );
-            }
+            LeapUtilGL::drawSkeletonHand( hand, m_vBoneColor, m_avJointColors[colorIndex] );
         }
     }
 
@@ -500,46 +475,25 @@ public:
     void resetCamera()
     {
         m_camera.SetOrbitTarget( Leap::Vector::zero() );
-        m_camera.SetPOVLookAt( Leap::Vector( 0, 2, 4 ), m_camera.GetOrbitTarget() );
+        m_camera.SetPOVLookAt( Leap::Vector( 0, 0, 4 ), m_camera.GetOrbitTarget() );
     }
 
     void initColors()
     {
-      float fMin      = 0.0f;
-      float fMax      = 1.0f;
-      float fNumSteps = static_cast<float>(pow( kNumColors, 1.0/3.0 ));
-      float fStepSize = (fMax - fMin)/fNumSteps;
-      float fR = fMin, fG = fMin, fB = fMin;
+      unsigned int i = 0;
 
-      for ( uint32_t i = 0; i < kNumColors; i++ )
-      {
-        m_avColors[i] = Leap::Vector( fR, fG, LeapUtil::Min(fB, fMax) );
+      m_vBoneColor = GLColor(Colours::darkgrey);
 
-        fR += fStepSize;
+      m_avJointColors[i++] = GLColor(Colours::aqua);
+      m_avJointColors[i++] = GLColor(Colours::darkgreen);
+      m_avJointColors[i++] = GLColor(Colours::blueviolet);
+      m_avJointColors[i++] = GLColor(Colours::crimson);
+      m_avJointColors[i++] = GLColor(Colours::salmon);
+      m_avJointColors[i++] = GLColor(Colours::blue);
+      m_avJointColors[i++] = GLColor(Colours::seagreen);
+      m_avJointColors[i++] = GLColor(Colours::orange);
 
-        if ( fR > fMax )
-        {
-          fR = fMin;
-          fG += fStepSize;
-
-          if ( fG > fMax )
-          {
-            fG = fMin;
-            fB += fStepSize;
-          }
-        }
-      }
-
-      Random rng(0x13491349);
-
-      for ( uint32_t i = 0; i < kNumColors; i++ )
-      {
-        uint32_t      uiRandIdx    = i + (rng.nextInt() % (kNumColors - i));
-        Leap::Vector  vSwapTemp    = m_avColors[i];
-
-        m_avColors[i]          = m_avColors[uiRandIdx];
-        m_avColors[uiRandIdx]  = vSwapTemp;
-      }
+      jassert(i == kNumColors);
     }
 
 private:
@@ -548,9 +502,8 @@ private:
     Leap::Frame                 m_lastFrame;
     double                      m_fLastUpdateTimeSeconds;
     double                      m_fLastRenderTimeSeconds;
-    Leap::Matrix                m_mtxFrameTransform;
+    Leap::Vector                m_vFrameTranslation;
     float                       m_fFrameScale;
-    float                       m_fPointableRadius;
     LeapUtil::RollingAverage<>  m_avgUpdateDeltaTime;
     LeapUtil::RollingAverage<>  m_avgRenderDeltaTime;
     String                      m_strUpdateFPS;
@@ -562,8 +515,9 @@ private:
     bool                        m_bShowHelp;
     bool                        m_bPaused;
 
-    enum  { kNumColors = 256 };
-    Leap::Vector            m_avColors[kNumColors];
+    GLColor                     m_vBoneColor;
+    enum  { kNumColors = 8 };
+    GLColor                     m_avJointColors[kNumColors];
 };
 
 //==============================================================================

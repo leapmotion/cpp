@@ -8,16 +8,15 @@
     <VS2013 targetFolder="Builds/VisualStudio2013" libraryType="1" externalLibraries="leap.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
-                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
                        postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"
-                       alwaysGenerateDebugSymbols="0"/>
+                       prebuildCommand="" alwaysGenerateDebugSymbols="0"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
@@ -33,15 +32,15 @@
     <VS2012 targetFolder="Builds/VisualStudio2012" libraryType="1" externalLibraries="leap.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
-                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
                        postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       prebuildCommand=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
@@ -57,15 +56,15 @@
     <VS2010 targetFolder="Builds/VisualStudio2010" libraryType="1" externalLibraries="leap.lib">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
-                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
                        postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       prebuildCommand=""/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_opengl" path="../ThirdParty/JUCE/modules"/>
@@ -82,10 +81,10 @@
             extraDefs="JUCE_USE_DIRECTWRITE=0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
+                       isDebug="1" optimisation="1" targetName="FingerVisualizer" libraryPath="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"
-                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"
-                       prebuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+                       postbuildCommand="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul"
+                       prebuildCommand=""/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="0" optimisation="3" targetName="FingerVisualizer" libraryPath="$(TargetDir)"
                        headerPath="..\..\..\..\LeapSDK\include;..\..\..\..\LeapSDK\util;..\..\..\LeapSDK\include;..\..\..\LeapSDK\util"

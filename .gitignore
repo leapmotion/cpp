@@ -13,3 +13,5 @@ LeapSDK/
 *.aps
 */Builds/MacOSX/Orientation.xcodeproj/project.xcworkspace/
 */Builds/MacOSX/build/
+*/Builds/*/Debug/
+*/Builds/*/Release/

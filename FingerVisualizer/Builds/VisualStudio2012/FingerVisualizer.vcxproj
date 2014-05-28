@@ -41,11 +41,11 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">FingerVisualizer</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath);$(TargetDir)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LibraryPath);..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86</LibraryPath>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">FingerVisualizer</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LibraryPath);$(TargetDir)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LibraryPath);..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86</LibraryPath>
     <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -83,7 +83,7 @@
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-      <AdditionalLibraryDirectories>$(TargetDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>leap.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -91,11 +91,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\FingerVisualizer.bsc</OutputFile>
     </Bscmake>
-    <PreBuildEvent>
-      <Command>copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul</Command>
-    </PreBuildEvent>
     <PostBuildEvent>
-      <Command>copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul</Command>
+      <Command>copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,7 +130,7 @@
       <TargetMachine>MachineX86</TargetMachine>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(TargetDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LargeAddressAware>true</LargeAddressAware>
       <AdditionalDependencies>leap.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -141,9 +138,6 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <OutputFile>$(IntDir)\FingerVisualizer.bsc</OutputFile>
     </Bscmake>
-    <PreBuildEvent>
-      <Command>copy /Y ..\..\..\..\LeapSDK\lib\x86\leap.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul</Command>
-    </PreBuildEvent>
     <PostBuildEvent>
       <Command>copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul</Command>
     </PostBuildEvent>

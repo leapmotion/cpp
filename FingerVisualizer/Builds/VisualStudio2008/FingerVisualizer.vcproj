@@ -16,9 +16,7 @@
                    UseOfMFC="0"
                    ATLMinimizesCRunTimeLibraryUsage="false"
                    CharacterSet="2">
-      <Tool Name="VCPreBuildEventTool"
-            Description="Pre-build"
-            CommandLine="copy /Y ..\..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\leapd.lib &quot;$(TargetDir)leap.lib&quot; &gt; nul"/>
+      <Tool Name="VCPreBuildEventTool"/>
       <Tool Name="VCCustomBuildTool"/>
       <Tool Name="VCXMLDataGeneratorTool"/>
       <Tool Name="VCWebServiceProxyGeneratorTool"/>
@@ -55,7 +53,7 @@
             GenerateDebugInformation="true"
             ProgramDatabaseFile="$(IntDir)\FingerVisualizer.pdb"
             SubSystem="2"
-            AdditionalLibraryDirectories="$(TargetDir)"
+            AdditionalLibraryDirectories="..\..\..\..\LeapSDK\lib\x86;..\..\..\LeapSDK\lib\x86"
             GenerateManifest="true"
             TargetMachine="1"
             AdditionalDependencies="leap.lib"/>
@@ -69,7 +67,7 @@
       <Tool Name="VCAppVerifierTool"/>
       <Tool Name="VCPostBuildEventTool"
             Description="Post-build"
-            CommandLine="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leapd.dll &quot;$(TargetDir)&quot; &gt; nul"/>
+            CommandLine="copy /Y ..\..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul || copy /Y ..\..\..\LeapSDK\lib\x86\Leap.dll &quot;$(TargetDir)&quot; &gt; nul"/>
     </Configuration>
     <Configuration Name="Release|Win32"
                    OutputDirectory=".\Release"
